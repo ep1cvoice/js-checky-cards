@@ -1,14 +1,16 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 :root {
 	--main-bg-color: #0f172a;
 	--text-color: #fff;
+	--btn-bg-color: #383b3f;
+	--btn-text-color: #fff;
 
-	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-family: 'Inter', sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 
@@ -25,22 +27,25 @@ a {
 	color: inherit;
 }
 
-
 body {
 	background-color: var(--main-bg-color);
-  color: var(--text-color);
+	color: var(--text-color);
 }
 
 @media (prefers-color-scheme: light) {
 	:root {
 		--main-bg-color: #eef2f7;
-    --text-color: #23272F;
+		--text-color: #23272f;
+		--btn-bg-color: #16444f;
+		--btn-text-color: #fff;
 	}
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--main-bg-color: #0f172a;
-    --text-color: #fff;
+		--text-color: #fff;
+		--btn-bg-color: #383b3f;
+		--btn-text-color: #fff;
 	}
 }

@@ -1,0 +1,28 @@
+.header {
+	width: 100%;
+	height: 70px;
+	background-color: var(--main-bg-color);
+	padding: 0 30px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+	text-transform: capitalize;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.headerButtons {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: black;
+}

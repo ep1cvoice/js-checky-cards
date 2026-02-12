@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import styles from './MainLayout.module.css';
+import Header from '../Header/Header';
 
 const MainLayout = () => {
 	const currentDate = new Date();
@@ -7,7 +8,7 @@ const MainLayout = () => {
 
 	return (
 		<div className={styles.mainLayout}>
-			<header className={styles.Header}>header</header>
+			<Header className = {styles.header} />
 			<div className={styles.mainWrapper}>
 				<main className={styles.main}>
 					<Outlet />
