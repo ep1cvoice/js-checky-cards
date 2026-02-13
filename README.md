@@ -1,16 +1,135 @@
-# React + Vite
+# JS Checky Cards
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**JS Checky Cards** is a Single Page Application built with **React + Vite**.
 
-Currently, two official plugins are available:
+The main purpose of this project is to deeply understand and practice core React concepts by building a real-world, feature-rich learning application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It allows users to create, manage, and review knowledge cards related to programming concepts — primarily React, as part of my learning journey — but also other JavaScript-based technologies.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📚 Project Purpose
 
-## Expanding the ESLint configuration
+This application is built as part of my learning React.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The primary goals are:
+
+- Practice core React concepts in a real-world scenario
+- Build a scalable SPA architecture
+- Manage state effectively
+- Implement authentication and protected routes
+- Work with forms, pagination, and filtering
+- Apply best practices in component design
+
+Although most default content focuses on React concepts, users can freely create and manage their own cards.
+
+---
+
+## 🧠 Main Idea
+
+JS Checky Cards is a flashcard-style knowledge manager.
+
+Each card contains:
+
+- **Title**
+- **Short Description**
+- **Extended Description**
+- **Example Usage**
+- **Knowledge Status** (Known / Unknown)
+
+Users can:
+
+- ➕ Create cards  
+- ✏️ Edit cards  
+- ❌ Delete cards  
+- 🔁 Mark as known / unknown  
+- 🔎 Filter by technology  
+- 📄 Navigate through paginated results  
+
+---
+
+## Supported Technologies (Categories)
+
+Currently supported categories:
+
+- JavaScript
+- React
+- Angular
+- Vue
+- Node.js
+
+The application is React-focused, but users can create cards for any supported category.
+
+---
+
+## 🔐 Core Features
+
+### Card Management (CRUD)
+
+- Create new cards
+- Edit existing cards
+- Delete cards
+- Toggle knowledge status
+
+### Pagination
+
+- Paginated card list
+- Dynamic page navigation
+- Efficient rendering
+
+### Filtering
+
+- Filter by selected technology
+- Display only relevant concepts
+
+### 🌗 Dark / Light Mode
+
+- Automatic theme detection (based on system preferences)
+- Optional manual theme switch (Light / Dark)
+- Persistent theme selection
+
+---
+
+## ⚛ React Concepts Practiced
+
+This project is designed to cover and reinforce:
+
+- Functional Components
+- Props
+- useState
+- useEffect
+- Conditional Rendering
+- Controlled Forms
+- Lifting State Up
+- Component Composition
+- Custom Hooks
+- Context API
+- React Router
+- Protected Routes
+- Pagination Logic
+- Form Validation
+- Performance Optimization (memo, useCallback, useMemo)
+
+---
+
+## 🏗 Architecture Overview
+
+- Single Page Application (SPA)
+- Modular component structure
+- Reusable UI components (Button, Card, Modal, etc.)
+- Clear separation of concerns
+- Organized folder structure
+
+
+## 🎯 Learning Goals
+
+JS Checky Cards is about:
+
+- Understanding how React works internally
+- Building scalable frontend architecture
+- Practicing state management patterns
+- Gaining confidence with real-world SPA development
+- Writing clean and maintainable code
+
+![App Preview](./src/assets/preview/preview.png)
+

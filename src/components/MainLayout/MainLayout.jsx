@@ -14,7 +14,7 @@ const MainLayout = () => {
 					<Outlet />
 				</main>
 				<footer className={styles.footer}>
-					React Checky Cards {} <br /> {year}
+					JavaScript Checky Cards {} <br /> {year}
 				</footer>
 			</div>
 		</div>
