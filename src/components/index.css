@@ -9,6 +9,8 @@
 	--text-color: #fff;
 	--btn-bg-color: #383b3f;
 	--btn-text-color: #fff;
+	--card-bg-color: #1e293b;
+
 
 	font-family: 'Inter', sans-serif;
 	line-height: 1.5;
@@ -36,8 +38,9 @@ body {
 	:root {
 		--main-bg-color: #eef2f7;
 		--text-color: #23272f;
-		--btn-bg-color: #16444f;
+		--btn-bg-color: #0f766e;
 		--btn-text-color: #fff;
+		--card-bg-color: #fff;
 	}
 }
 
@@ -47,5 +50,7 @@ body {
 		--text-color: #fff;
 		--btn-bg-color: #383b3f;
 		--btn-text-color: #fff;
+		--card-bg-color: #1e293b;
+
 	}
 }

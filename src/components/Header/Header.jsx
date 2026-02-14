@@ -1,13 +1,21 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import Button from '../Button';
+
 import ReactLogo from '../../assets/react.svg';
 import JSLogo from '../../assets/javascript-logo.svg';
 import AngularLogo from '../../assets/angular-logo.svg';
 import VueLogo from '../../assets/vue-logo.png';
 import NodeLogo from '../../assets/nodejs-icon.svg';
+import TagLogo from '../../assets/html-tag.svg?react';
+
 import styles from './Header.module.css';
 
 const Header = () => {
+
+	const navigate = useNavigate();
+
 	const [isOpen, setIsOpen] = useState(false);
 
 	const toggleMenu = () => {
@@ -23,7 +31,7 @@ const Header = () => {
 					<span></span>
 				</div>
 
-				<p className={styles.logo}>
+				<div className={styles.techIcons}>
 					<img className={styles.headerIcon} src={JSLogo} alt='JS logo' />
 					<img className={styles.headerIcon} src={ReactLogo} alt='React logo' />
 					<img
@@ -33,12 +41,18 @@ const Header = () => {
 					/>
 					<img className={styles.headerIcon} src={VueLogo} alt='Vue logo' />
 					<img className={styles.headerIcon} src={NodeLogo} alt='NodeJS logo' />
-					<span>JavaScript Checky Cards</span>
-				</p>
+				</div>
 
-				<div className={styles.headerButtons}>
-					<Button isDisabled={true}>+ Add </Button>
-					<Button>Log In</Button>
+				<div className={styles.rightSide}>
+					<div className={styles.brand} onClick={()=> navigate("/")}>
+						<TagLogo className={`${styles.headerIcon} ${styles.tagIcon}`} />
+						<span>JS Checky Cards</span>
+					</div>
+
+					<div className={styles.headerButtons}>
+						<Button onClick = {() => navigate("/addquestion")} isDisabled={false}>+ Add </Button>
+						<Button>Log In</Button>
+					</div>
 				</div>
 			</header>
 
@@ -71,6 +85,9 @@ const Header = () => {
 					<img src={NodeLogo} alt='Node' />
 					<span>NodeJS</span>
 				</div>
+
+				<Button isDisabled={true}>+ Add </Button>
+				<Button>Log In</Button>
 			</div>
 		</>
 	);

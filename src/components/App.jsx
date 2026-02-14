@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './MainLayout';
+import HomePage from '../pages/HomePage/';
 
 function App() {
 	return (
@@ -7,7 +8,7 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route element={<MainLayout />}>
-						<Route path='/' element={<div> Home</div>}></Route>
+						<Route path='/' element={<HomePage />}></Route>
 						<Route path='/main' element={<div> Main</div>}></Route>
 						<Route
 							path='/addquestion'
