@@ -7,30 +7,30 @@ import VueLogo from '../../assets/vue-logo.png';
 import NodeLogo from '../../assets/nodejs-icon.svg';
 
 import styles from './QuestionCard.module.css';
+import { useNavigate } from 'react-router-dom';
 
-const QuestionCard = () => {
+const QuestionCard = ({ card }) => {
+	const navigate = useNavigate();
+
 	return (
 		<div className={styles.card}>
 			<div className={styles.cardLabels}>
 				<div className={styles.leftSide}>
-					<div>Level: 1</div>
-					<div>Not Completed</div>
+					<div>Level: {card.level}</div>
+					<div>{card.completed ? 'Completed' : 'Not Completed'}</div>
 				</div>
 
 				<img src={ReactLogo} alt='React Logo' />
 			</div>
 
-			<h5 className={styles.cardTitle}>Do czego służy React?</h5>
+			<h5 className={styles.cardTitle}>{card.question}</h5>
 
 			<div className={styles.cardAnswers}>
 				<span>Short Answer:</span>
-				<p className={styles.cardParagraph}>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo,
-					non?
-				</p>
+				<p className={styles.cardParagraph}>{card.answer}</p>
 			</div>
 
-			<Button onClick={() => {}}> View </Button>
+			<Button onClick={() => navigate(`/question/${card.id}`)}> View </Button>
 		</div>
 	);
 };

@@ -1,0 +1,45 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.content {
+  max-width: 500px;
+}
+
+.code {
+  font-size: 120px;
+  font-weight: 800;
+  margin: 0;
+  color: #2f80ed;
+  letter-spacing: 5px;
+}
+
+.title {
+  font-size: 28px;
+  margin: 10px 0;
+  color: var(--text-color);
+}
+
+.description {
+  font-size: 16px;
+  color: var(--text-color);
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: var(--btn-bg-color);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
