@@ -19,7 +19,7 @@ function App() {
 
 						<Route path='/question/:id' element={<div> Question Page </div>}></Route>
 
-						<Route path='*' element={<NotFoundPage />}></Route>
+						<Route path='*' element={<NotFoundPage/>}></Route>
 					</Route>
 				</Routes>
 			</BrowserRouter>
