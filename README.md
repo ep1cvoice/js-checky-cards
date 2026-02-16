@@ -6,7 +6,7 @@ The main purpose of this project is to deeply understand and practice core React
 
 It allows users to create, manage, and review knowledge cards related to programming concepts — primarily React, as part of my learning journey — but also other JavaScript-based technologies.
 
----
+![App Preview Desktop](./src/assets/preview/preview-desktop.png)
 
 ## 📚 Project Purpose
 
@@ -131,5 +131,4 @@ JS Checky Cards is about:
 - Gaining confidence with real-world SPA development
 - Writing clean and maintainable code
 
-![App Preview](./src/assets/preview/preview.png)
 
