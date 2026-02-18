@@ -7,7 +7,8 @@ import ReactLogo from '../../assets/react.svg';
 import JSLogo from '../../assets/javascript-logo.svg';
 import AngularLogo from '../../assets/angular-logo.svg';
 import VueLogo from '../../assets/vue-logo.png';
-import NodeLogo from '../../assets/nodejs-icon.svg';
+import NodeJSLogo from '../../assets/nodejs-icon.svg';
+import NextJSLogo from '../../assets/nextjs-icon.svg';
 import TagLogo from '../../assets/html-tag.svg?react';
 
 import styles from './Header.module.css';
@@ -40,7 +41,8 @@ const Header = () => {
 						alt='Angular logo'
 					/>
 					<img className={styles.headerIcon} src={VueLogo} alt='Vue logo' />
-					<img className={styles.headerIcon} src={NodeLogo} alt='NodeJS logo' />
+					<img className={styles.headerIcon} src={NodeJSLogo} alt='Node.js logo' />
+					<img className={styles.headerIcon} src={NextJSLogo} alt='Next.js logo' />
 				</div>
 
 				<div className={styles.rightSide}>
@@ -82,11 +84,15 @@ const Header = () => {
 				</div>
 
 				<div className={styles.menuItem}>
-					<img src={NodeLogo} alt='Node' />
-					<span>NodeJS</span>
+					<img src={NodeJSLogo} alt='Node.js' />
+					<span>Node.js</span>
+				</div>
+				<div className={styles.menuItem}>
+					<img src={NextJSLogo} alt='Next.js' />
+					<span>Next.js</span>
 				</div>
 
-				<Button isDisabled={true}>+ Add </Button>
+				<Button isDisabled={false}>+ Add </Button>
 				<Button>Log In</Button>
 			</div>
 		</>

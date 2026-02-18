@@ -8,6 +8,7 @@
 	--main-bg-color: #0f172a;
 	--text-color: #fff;
 	--btn-bg-color: #383b3f;
+	--btn-hover-bg: #222;
 	--btn-text-color: #fff;
 	--card-bg-color: #1e293b;
 
@@ -39,6 +40,7 @@ body {
 		--main-bg-color: #eef2f7;
 		--text-color: #23272f;
 		--btn-bg-color: #0f766e;
+		--btn-hover-bg: #222;
 		--btn-text-color: #fff;
 		--card-bg-color: #fff;
 	}
@@ -49,6 +51,7 @@ body {
 		--main-bg-color: #0f172a;
 		--text-color: #fff;
 		--btn-bg-color: #383b3f;
+		--btn-hover-bg: #4a4e54;
 		--btn-text-color: #fff;
 		--card-bg-color: #1e293b;
 
