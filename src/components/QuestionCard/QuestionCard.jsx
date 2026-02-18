@@ -12,6 +12,14 @@ import styles from './QuestionCard.module.css';
 const QuestionCard = ({ card }) => {
 	const navigate = useNavigate();
 
+	const categoryIcons = {
+		react: ReactLogo,
+		javascript: JSLogo,
+		angular: AngularLogo,
+		vue: VueLogo,
+		node: NodeLogo,
+	};
+
 	return (
 		<div className={styles.card}>
 			<div className={styles.cardLabels}>
@@ -20,7 +28,7 @@ const QuestionCard = ({ card }) => {
 					<div>{card.completed ? 'Completed' : 'Not Completed'}</div>
 				</div>
 
-				<img src={ReactLogo} alt='React Logo' />
+				<img src={categoryIcons[card.category]} alt={`${card.category} logo`} />
 			</div>
 
 			<h5 className={styles.cardTitle}>{card.question}</h5>
