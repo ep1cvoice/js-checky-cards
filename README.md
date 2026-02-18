@@ -2,7 +2,7 @@
 
 **JS Checky Cards** is a Single Page Application built with **React + Vite**.
 
-The main purpose of this project is to deeply understand and practice core React concepts by building a real-world, feature-rich learning application.
+The main purpose of this project for me is to deeply understand and practice core React concepts by building a real-world, feature-rich learning application.
 
 It allows users to create, manage, and review knowledge cards related to programming concepts — primarily React, as part of my learning journey — but also other JavaScript-based technologies.
 
@@ -23,32 +23,53 @@ The primary goals are:
 
 Although most default content focuses on React concepts, users can freely create and manage their own cards.
 
----
-
 ## 🧠 Main Idea
 
-JS Checky Cards is a flashcard-style knowledge manager.
+JS Checky Cards is a card-style future developer knowledge manager.
 
 Each card contains:
 
 - **Title**
+- **Category (Vanilla JS, React, Node.js etc.)**
 - **Short Description**
 - **Extended Description**
 - **Example Usage**
-- **Knowledge Status** (Known / Unknown)
+- **Knowledge Status** (Completed / Not completed)
 
 Users can:
 
 - ➕ Create cards  
 - ✏️ Edit cards  
 - ❌ Delete cards  
-- 🔁 Mark as known / unknown  
-- 🔎 Filter by technology  
+- 🔁 Mark as completed / not completed
+- 🔎 Filter by category
 - 📄 Navigate through paginated results  
+- 🌗 Use automatic Dark / Light mode
 
----
+## ⚙️ How to run
+1. Install dependencies
+```bash
+npm install
+```
+2. Start JSON Server (mock backend)
+```bash
+npm run server
+```
+3. Start the frontend (in a separate terminal! ⚠️)
+```bash
+npm run dev
+```
 
-## Supported Technologies (Categories)
+## 📦 Backend (JSON Server)
+
+The project uses JSON Server as a mock REST API.
+
+- Contains 60 React-related questions
+- Data is loaded dynamically after server startup
+- Simulates real backend behavior
+
+
+## ⚙️ Supported Technologies (Categories)
 
 Currently supported categories:
 
@@ -59,8 +80,6 @@ Currently supported categories:
 - Node.js
 
 The application is React-focused, but users can create cards for any supported category.
-
----
 
 ## 🔐 Core Features
 
@@ -88,8 +107,6 @@ The application is React-focused, but users can create cards for any supported c
 - Optional manual theme switch (Light / Dark)
 - Persistent theme selection
 
----
-
 ## ⚛ React Concepts Practiced
 
 This project is designed to cover and reinforce:
@@ -109,8 +126,6 @@ This project is designed to cover and reinforce:
 - Pagination Logic
 - Form Validation
 - Performance Optimization (memo, useCallback, useMemo)
-
----
 
 ## 🏗 Architecture Overview
 
