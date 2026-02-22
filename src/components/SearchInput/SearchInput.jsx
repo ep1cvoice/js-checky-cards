@@ -13,7 +13,7 @@ const SearchInput = ({ value, onChange }) => {
 			<input
 				className={styles.input}
 				type='text'
-				id='inputId'
+				id={inputId}
 				placeholder='Search for...'
 				value={value}
 				onChange={onChange}

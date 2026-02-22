@@ -8,3 +8,44 @@
     align-items: center;
     gap: 10px;
 }
+
+.noCardsWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+.noCards {
+    text-align: center;
+    padding: 40px 50px;
+    border-radius: 24px;
+    background: var(--card-bg-color);
+    border: 1px solid var(--btn-bg-color);
+    animation: float 4s ease-in-out infinite;
+    max-width: 420px;
+}
+
+.icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.noCards h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.noCards p {
+    font-size: 15px;
+    color: var(--text-color);
+}
+
+/* Subtelna animacja unoszenia */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}

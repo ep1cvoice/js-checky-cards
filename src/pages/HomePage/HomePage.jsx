@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { API_URL } from '../../constants';
 
 import QuestionCardList from '../../components/QuestionCardList';
@@ -20,6 +20,10 @@ const HomePage = () => {
 		return data;
 	});
 
+	const cards = useMemo(() => {
+		return (questions || []).filter((d) => d.question.toLowerCase().includes(searchValue.trim().toLowerCase()));
+	}, [questions, searchValue]);
+
 	useEffect(() => {
 		getQuestions('react');
 	}, []);
@@ -36,7 +40,17 @@ const HomePage = () => {
 
 			{isLoading && <Loader />}
 			{error && <p>{error}</p>}
-			<QuestionCardList cards={questions} />
+			{cards.length === 0 && (
+				<div className={styles.noCardsWrapper}>
+					<div className={styles.noCards}>
+						<div className={styles.icon}>🔍</div>
+						<h3>No results found</h3>
+						<p>Try adjusting your search phrase.</p>
+					</div>
+				</div>
+			)}
+			
+			<QuestionCardList cards={cards} />
 		</>
 	);
 };
