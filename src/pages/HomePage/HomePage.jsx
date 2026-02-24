@@ -11,6 +11,7 @@ import styles from './HomePage.module.css';
 const HomePage = () => {
 	const [questions, setQuestions] = useState([]);
 	const [searchValue, setSearchValue] = useState('');
+	const [sortSelectValue, setSortSelectValue] = useState('');
 
 	const [getQuestions, isLoading, error] = useFetch(async (url) => {
 		const response = await fetch(`${API_URL}/${url}`);
@@ -28,14 +29,41 @@ const HomePage = () => {
 		getQuestions('react');
 	}, []);
 
+	useEffect(() => {
+		getQuestions(`react${sortSelectValue}`);
+	}, [sortSelectValue]);
+
 	const onSearchChangehandler = (e) => {
 		setSearchValue(e.target.value);
+	};
+
+	const onSortSelectChangeHandler = (e) => {
+		setSortSelectValue(e.target.value);
 	};
 
 	return (
 		<>
 			<div className={styles.controlsContainer}>
 				<SearchInput value={searchValue} onChange={onSearchChangehandler} />
+
+				<div className={styles.selectGroup}>
+					<select value='s' onChange={onSortSelectChangeHandler} className={styles.select}>
+						<option value=''>technology</option>
+						<option value=''>Vanilla JS</option>
+						<option value=''>React</option>
+						<option value=''>Angular</option>
+						<option value=''>Vue</option>
+						<option value=''>Node.js</option>
+						<option value=''>Next.js</option>
+					</select>
+					<select value={sortSelectValue} onChange={onSortSelectChangeHandler} className={styles.select}>
+						<option value=''>sort by</option>
+						<option value='?_sort=level'>LVL asc</option>
+						<option value='?_sort=-level'>LVL desc</option>
+						<option value='?_sort=completed'>completed asc</option>
+						<option value='?_sort=-completed'>completed desc</option>
+					</select>
+				</div>
 			</div>
 
 			{isLoading && <Loader />}
@@ -49,7 +77,7 @@ const HomePage = () => {
 					</div>
 				</div>
 			)}
-			
+
 			<QuestionCardList cards={cards} />
 		</>
 	);
