@@ -1,12 +1,12 @@
 .controlsContainer {
     width: 100%;
-    min-width: 800px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 15px 0;
+    padding: 30px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .noCardsWrapper {
@@ -14,6 +14,16 @@
     justify-content: center;
     align-items: center;
     padding: 80px 20px;
+}
+
+.selectGroup {
+    display: flex;
+    gap: 10px;
+}
+
+.selectGroup .select {
+    flex: 1;
+    min-width: 0;
 }
 
 .noCards {
@@ -43,9 +53,38 @@
     color: var(--text-color);
 }
 
-/* Subtelna animacja unoszenia */
+.select {
+    height: 40px;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+}
+
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-6px); }
     100% { transform: translateY(0px); }
+}
+
+@media (max-width: 576px) {
+    .controlsContainer {
+        flex-direction: column-reverse;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .selectGroup {
+        width: 100%;
+    }
+
+    .selectGroup .select {
+        flex: 1;
+    }
+
+    .controlsContainer > :first-child {
+        width: 100%;
+    }
 }
