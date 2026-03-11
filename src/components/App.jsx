@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './MainLayout';
-import HomePage from '../pages/HomePage/';
+import HomePage from '../pages/HomePage';
+import QuestionPage from '../pages/QuestionPage';
 import NotFoundPage from '../pages/NotFoundPage';
 
 function App() {
@@ -14,12 +15,14 @@ function App() {
 						<Route path='/main' element={<div> Main</div>}></Route>
 
 						<Route path='/addquestion' element={<div> Add a question</div>}></Route>
-						
+
 						<Route path='/forbidden' element={<div> Forbidden</div>}></Route>
 
-						<Route path='/question/:id' element={<div> Question Page </div>}></Route>
+						<Route path='/question/:id' element={<QuestionPage />}></Route>
 
-						<Route path='*' element={<NotFoundPage/>}></Route>
+						<Route path='/question/:id' element={<QuestionPage />}></Route>
+
+						<Route path='*' element={<NotFoundPage />}></Route>
 					</Route>
 				</Routes>
 			</BrowserRouter>
