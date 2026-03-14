@@ -6,7 +6,8 @@ import { API_URL } from '../../constants';
 import Button from '../../components/Button';
 import Badge from '../../components/Badge';
 import { Loader } from '../../components/Loader';
-
+import htmlLogo from '../../assets/HTML5.png';
+import cssLogo from '../../assets/CSS3.png';
 import JSLogo from '../../assets/javascript-logo.svg';
 import ReactLogo from '../../assets/react.svg';
 import AngularLogo from '../../assets/angular-logo.svg';
@@ -67,6 +68,8 @@ const QuestionPage = () => {
 	};
 
 	const categoryIcons = {
+		html: htmlLogo,
+		css: cssLogo,
 		react: ReactLogo,
 		javascript: JSLogo,
 		angular: AngularLogo,

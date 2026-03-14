@@ -1,30 +1,67 @@
-import  Button  from '../../components/Button'
+import { useState, useActionState } from 'react';
+import { useFetch } from '../../hooks/useFetch';
+import { createCard } from '../../hooks/cardsApi';
+import Button from '../../components/Button';
 import styles from './AddQuestionPage.module.css';
 
 const AddQuestionPage = () => {
+	const [createCardFetch, isLoading, error] = useFetch(createCard);
+	const [successMessage, setSuccessMessage] = useState('');
+
+	const createCardAction = async (_prevState, formData) => {
+		try {
+			const newQuestion = Object.fromEntries(formData);
+			const resources = newQuestion.resources.trim();
+			const isClearForm = newQuestion.clearForm;
+
+			const question = await createCardFetch({
+				question: newQuestion.question.trim(),
+				category: newQuestion.category.trim(),
+				level: Number(newQuestion.level),
+				answer: newQuestion.answer.trim(),
+				description: newQuestion.description.trim(),
+				resources: newQuestion.resources.length ? resources.split(',').map((r) => r.trim()) : [],
+				completed: false,
+			});
+
+			setSuccessMessage('Card successfully created!');
+
+			return isClearForm ? { clearForm: true } : question;
+		} catch (err) {
+			console.log(err.message);
+			return { clearForm: false };
+		}
+	};
+
+	const [formState, formAction] = useActionState(createCardAction, { clearForm: true });
+
 	return (
 		<>
 			<h1 className={styles.formTitle}>Add new card</h1>
 
 			<div className={styles.formContainer}>
-				<form action='' className={styles.form}>
+				<form action={formAction} className={styles.form}>
 					<div className={styles.formWrapper}>
 						<label htmlFor='questionField'>Question: </label>
 						<textarea
-							defaultValue={'defaultValue'}
+							defaultValue={formState.question}
 							name='question'
 							id='questionField'
 							cols='30'
 							rows='2'
 							required
-							placeholder='Enter question title'></textarea>
+							placeholder='Enter question title'
+						/>
 					</div>
+
 					<div className={styles.formWrapper}>
 						<label htmlFor='categoryField'>Category: </label>
-						<select name='category' id='categoryField'>
+						<select name='category' id='categoryField' defaultValue={formState.category}>
 							<option disabled value=''>
 								Choose Category
 							</option>
+							<option value='html'>HTML</option>
+							<option value='css'>CSS</option>
 							<option value='javascript'>Vanilla JS</option>
 							<option value='react'>React</option>
 							<option value='angular'>Angular</option>
@@ -36,7 +73,7 @@ const AddQuestionPage = () => {
 
 					<div className={styles.formWrapper}>
 						<label htmlFor='levelField'>Level:</label>
-						<select name='level' id='levelField'>
+						<select name='level' id='levelField' defaultValue={formState.level}>
 							<option disabled value=''>
 								Question Level
 							</option>
@@ -46,46 +83,61 @@ const AddQuestionPage = () => {
 							<option value='4'>Pro</option>
 						</select>
 					</div>
+
 					<div className={styles.formWrapper}>
 						<label htmlFor='answerField'>Short Answer: </label>
 						<textarea
-							defaultValue={'defaultValue'}
+							defaultValue={formState.answer}
 							name='answer'
 							id='answerField'
 							cols='30'
 							rows='2'
 							required
-							placeholder='Enter a short answer'></textarea>
+							placeholder='Enter a short answer'
+						/>
 					</div>
+
 					<div className={styles.formWrapper}>
 						<label htmlFor='descriptionField'>Full Description: </label>
 						<textarea
-							defaultValue={'defaultValue'}
+							defaultValue={formState.description}
 							name='description'
 							id='descriptionField'
 							cols='30'
 							rows='5'
 							required
-							placeholder='Enter a full description'></textarea>
+							placeholder='Enter a full description'
+						/>
 					</div>
+
 					<div className={styles.formWrapper}>
 						<label htmlFor='resourcesField'>Links: </label>
 						<textarea
-							defaultValue={'defaultValue'}
+							defaultValue={formState.resources?.join(', ') || ''}
 							name='resources'
 							id='resourcesField'
 							cols='30'
 							rows='5'
 							required
-							placeholder='Enter links separated by comma'></textarea>
+							placeholder='Enter links separated by comma'
+						/>
 					</div>
 
-                    
-						<label htmlFor='clearFormField' className={styles.clearFormControl}>
-                            <input className = {styles.checkbox}type="checkbox" id = 'clearFormField' defaultValue={true} name ='clearForm'/>
-                            <span>Clear form after creating?</span>
-                        </label>
-					<Button>Create New Card</Button>
+					<label htmlFor='clearFormField' className={styles.clearFormControl}>
+						<input
+							className={styles.checkbox}
+							type='checkbox'
+							id='clearFormField'
+							defaultChecked={formState.clearForm}
+							name='clearForm'
+						/>
+						<span>Clear form after creating?</span>
+					</label>
+
+					<Button isDisabled={isLoading}>Create New Card</Button>
+
+					{successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+					{error && <p style={{ color: 'red' }}>{error}</p>}
 				</form>
 			</div>
 		</>

@@ -13,6 +13,7 @@ import NodeJSLogo from '../../assets/nodejs-icon.svg';
 import NextJSLogo from '../../assets/nextjs-icon.svg';
 import TagLogo from '../../assets/html-tag.svg?react';
 
+import { Plus, LogIn } from 'lucide-react';
 import styles from './Header.module.css';
 
 const Header = () => {
@@ -53,8 +54,8 @@ const Header = () => {
 						<img className={styles.headerIcon} src={cssLogo} alt='css logo' />
 					</button>
 					<button
-						className={`${styles.headerButton} ${activeTechnology === 'js' ? styles.active : ''}`}
-						onClick={() => goToTechnology('js')}>
+						className={`${styles.headerButton} ${activeTechnology === 'javascript' ? styles.active : ''}`}
+						onClick={() => goToTechnology('javascript')}>
 						<img className={styles.headerIcon} src={JSLogo} alt='JS logo' />
 					</button>
 					<button
@@ -92,9 +93,14 @@ const Header = () => {
 
 					<div className={styles.headerButtons}>
 						<Button onClick={() => navigate('/addquestion')} isDisabled={false}>
-							+ Add{' '}
+							<Plus size={18} />
+							Add{' '}
 						</Button>
-						<Button>Log In</Button>
+						<Button>
+							{' '}
+							<LogIn size={18} />
+							Log In
+						</Button>
 					</div>
 				</div>
 			</header>
@@ -114,7 +120,7 @@ const Header = () => {
 					<span>CSS</span>
 				</div>
 
-				<div className={styles.menuItem} onClick={() => goToTechnology('js')}>
+				<div className={styles.menuItem} onClick={() => goToTechnology('javascript')}>
 					<img src={JSLogo} alt='JS' />
 					<span>JavaScript</span>
 				</div>
@@ -143,8 +149,13 @@ const Header = () => {
 					<span>Next.js</span>
 				</div>
 
-				<Button isDisabled={false}>+ Add </Button>
-				<Button>Log In</Button>
+				<Button onClick={() => navigate('/addquestion')} isDisabled={false}>
+					<Plus size={16} /> Add{' '}
+				</Button>
+				<Button>
+					<LogIn size={16} />
+					Log In
+				</Button>
 			</div>
 		</>
 	);

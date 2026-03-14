@@ -105,14 +105,14 @@ const HomePage = () => {
 				<div className={styles.selectGroup}>
 					<select value={filterSelectValue} onChange={onFilterSelectChangeHandler} className={styles.select}>
 						<option value=''>Technology</option>
+						<option value='html'>HTML</option>
+						<option value='css'>CSS</option>
 						<option value='js'>Vanilla JS</option>
 						<option value='react'>React</option>
 						<option value='angular'>Angular</option>
 						<option value='vue'>Vue</option>
 						<option value='node'>Node.js</option>
 						<option value='next'>Next.js</option>
-						<option value='html'>HTML</option>
-						<option value='css'>CSS</option>
 					</select>
 					<select value={sortSelectValue} onChange={onSortSelectChangeHandler} className={styles.select}>
 						<option value=''>Sort By</option>

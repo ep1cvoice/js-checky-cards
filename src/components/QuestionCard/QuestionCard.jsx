@@ -2,25 +2,30 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../Button';
 import Badge from '../Badge';
 
+import cssLogo from '../../assets/CSS3.png';
+import htmlLogo from '../../assets/HTML5.png';
 import JSLogo from '../../assets/javascript-logo.svg';
 import ReactLogo from '../../assets/react.svg';
 import AngularLogo from '../../assets/angular-logo.svg';
 import VueLogo from '../../assets/vue-logo.png';
 import NodeLogo from '../../assets/nodejs-icon.svg';
-import NextLogo from '../../assets/nextjs-icon.svg'
+import NextLogo from '../../assets/nextjs-icon.svg';
 
+import { Expand } from 'lucide-react';
 import styles from './QuestionCard.module.css';
 
 const QuestionCard = ({ card }) => {
 	const navigate = useNavigate();
 
 	const categoryIcons = {
+		html: htmlLogo,
+		css: cssLogo,
 		react: ReactLogo,
 		javascript: JSLogo,
 		angular: AngularLogo,
 		vue: VueLogo,
 		node: NodeLogo,
-		next: NextLogo
+		next: NextLogo,
 	};
 
 	const levelMap = {
@@ -46,7 +51,7 @@ const QuestionCard = ({ card }) => {
 					</Badge>
 				</div>
 
-				<img src={categoryIcons[card.category]} alt={`${card.category}`} />
+				<img src={categoryIcons[card.category?.trim()] || JSLogo} alt={card.category} />
 			</div>
 
 			<h5 className={styles.cardTitle}>{card.question}</h5>
@@ -56,7 +61,7 @@ const QuestionCard = ({ card }) => {
 				<p className={styles.cardParagraph}>{card.answer}</p>
 			</div>
 
-			<Button onClick={() => navigate(`/question/${card.id}`)}> View </Button>
+			<Button onClick={() => navigate(`/question/${card.id}`)}> View <Expand size = {18}/></Button>
 		</div>
 	);
 };
