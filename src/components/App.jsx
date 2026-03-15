@@ -3,7 +3,8 @@ import MainLayout from './MainLayout';
 import HomePage from '../pages/HomePage';
 import QuestionPage from '../pages/QuestionPage';
 import NotFoundPage from '../pages/NotFoundPage';
-import AddQuestionPage from '../pages/AddQuestionPage/AddQuestionPage';
+import AddQuestionPage from '../pages/AddQuestionPage';
+import EditQuestionPage from '../pages/EditQuestionPage';
 
 function App() {
 	return (
@@ -15,9 +16,11 @@ function App() {
 
 						<Route path='/addquestion' element={<AddQuestionPage />}></Route>
 
-						<Route path='/forbidden' element={<div> Forbidden</div>}></Route>
-
 						<Route path='/question/:id' element={<QuestionPage />}></Route>
+
+						<Route path='/editquestion/:id' element={<EditQuestionPage />}></Route>
+
+						<Route path='/forbidden' element={<div>Forbidden</div>}></Route>
 
 						<Route path='*' element={<NotFoundPage />}></Route>
 					</Route>

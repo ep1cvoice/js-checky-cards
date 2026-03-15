@@ -6,29 +6,29 @@
 	background-color: var(--card-bg-color);
 	color: var(--text-color);
 	box-shadow: var(--shadow);
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    gap: 15px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: start;
+	gap: 15px;
+	transition: all 0.25s ease;
 }
 
 .card button {
-    align-self: end;
+	align-self: end;
 }
 
-
 .card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+	transform: translateY(-3px);
+	background-color: var(--card-hover-bg); 
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .cardLabels {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
 }
 
 .cardLabels img {
@@ -38,27 +38,26 @@
 }
 
 .leftSide {
-    display: flex;
-    gap: 10px;
+	display: flex;
+	gap: 10px;
 }
 
-
 .cardTitle {
-    font-size: 24px;
-    line-height: 28px;
+	font-size: 24px;
+	line-height: 28px;
 }
 
 .cardAnswers {
-    margin-top: auto;
+	margin-top: auto;
 }
 
 .cardParagraph {
-    font-size: 14px;
-    filter: blur(3px);
-    font-style: italic;
-    text-align: justify;
-    transition: filter .3s ease-in-out;
+	font-size: 14px;
+	filter: blur(3px);
+	font-style: italic;
+	text-align: justify;
+	transition: filter 0.3s ease-in-out;
 }
 .cardParagraph:hover {
-    filter: none;
+	filter: none;
 }

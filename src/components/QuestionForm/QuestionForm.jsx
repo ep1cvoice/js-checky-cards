@@ -4,6 +4,7 @@ import styles from './QuestionForm.module.css';
 const QuestionForm = ({ formAction, formState, submitBtnText, isLoading }) => {
 	return (
 		<form action={formAction} className={styles.form}>
+			<input type='hidden' name='id' defaultValue={formState?.id || ''} />
 			<div className={styles.formWrapper}>
 				<label htmlFor='questionField'>Question: </label>
 				<textarea
@@ -19,7 +20,7 @@ const QuestionForm = ({ formAction, formState, submitBtnText, isLoading }) => {
 
 			<div className={styles.formWrapper}>
 				<label htmlFor='categoryField'>Category: </label>
-				<select name='category' id='categoryField' defaultValue={formState.category}>
+				<select name='category' id='categoryField' defaultValue={formState?.category || ''}>
 					<option disabled value=''>
 						Choose Category
 					</option>
@@ -36,7 +37,7 @@ const QuestionForm = ({ formAction, formState, submitBtnText, isLoading }) => {
 
 			<div className={styles.formWrapper}>
 				<label htmlFor='levelField'>Level:</label>
-				<select name='level' id='levelField' defaultValue={formState.level}>
+				<select name='level' id='levelField' defaultValue={formState?.level || ''}>
 					<option disabled value=''>
 						Question Level
 					</option>
@@ -76,7 +77,7 @@ const QuestionForm = ({ formAction, formState, submitBtnText, isLoading }) => {
 			<div className={styles.formWrapper}>
 				<label htmlFor='resourcesField'>Links: </label>
 				<textarea
-					defaultValue={formState.resources?.join(', ') || ''}
+					defaultValue={formState?.resources?.join(', ') || ''}
 					name='resources'
 					id='resourcesField'
 					cols='30'
@@ -91,7 +92,7 @@ const QuestionForm = ({ formAction, formState, submitBtnText, isLoading }) => {
 					className={styles.checkbox}
 					type='checkbox'
 					id='clearFormField'
-					defaultChecked={formState.clearForm ?? true}
+					defaultChecked={formState?.clearForm ?? true}
 					name='clearForm'
 				/>
 				<span>Clear form after creating?</span>

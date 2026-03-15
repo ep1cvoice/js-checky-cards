@@ -12,12 +12,12 @@
       ],
       "level": 1,
       "completed": true,
-      "editDate": "03.02.2025, 19:49"
+      "editDate": "15.03.2026, 18:28"
     },
     {
       "id": "2",
       "category": "react",
-      "question": "Czym jest JSX?",
+      "question": "Czym jest JSX? :)",
       "answer": "JSX to rozszerzenie składni JavaScript dla Reacta.",
       "description": "JSX pozwala pisać kod podobny do HTML w JavaScript, który następnie jest transpilowany do wywołań `React.createElement`. Ułatwia to tworzenie i wizualne przedstawienie struktury komponentów.",
       "resources": [
@@ -36,7 +36,7 @@
       "resources": [
         "https://react.dev/learn/render-and-commit"
       ],
-      "level": 2,
+      "level": 1,
       "completed": false,
       "editDate": "03.02.2025, 19:01"
     },

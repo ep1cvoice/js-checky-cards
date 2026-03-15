@@ -21,6 +21,10 @@
 	}
 }
 
+textarea {
+  resize: vertical;
+}
+
 select,
 textarea {
 	padding: 5px;
