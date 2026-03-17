@@ -6,7 +6,9 @@ import { API_URL } from '../../constants';
 
 import Button from '../../components/Button';
 import Badge from '../../components/Badge';
+import MarkdownRenderer from '../../components/MarkdownRenderer';
 import { Loader } from '../../components/Loader';
+
 import htmlLogo from '../../assets/HTML5.png';
 import cssLogo from '../../assets/CSS3.png';
 import JSLogo from '../../assets/javascript-logo.svg';
@@ -90,6 +92,8 @@ const QuestionPage = () => {
 
 	const completedOption = card.completed ? 'success' : 'primary';
 
+	console.log(typeof card.description, card.description);
+
 	return (
 		<>
 			<div className={styles.container}>
@@ -109,7 +113,7 @@ const QuestionPage = () => {
 				</div>
 
 				<h5 className={styles.cardTitle}>{card.question}</h5>
-				<p className={styles.cardDescription}>{card.description}</p>
+				<MarkdownRenderer  content={card.description} />
 
 				<div className={styles.cardAnswers}>
 					<span>Short Answer:</span>
