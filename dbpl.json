@@ -1,19 +1,6 @@
 {
   "checkycards": [
     {
-      "id": "2",
-      "category": "react",
-      "question": "Czym jest JSX?",
-      "answer": "JSX to rozszerzenie składni JavaScript dla Reacta.",
-      "description": "JSX pozwala pisać kod podobny do HTML w JavaScript, który następnie jest transpilowany do wywołań `React.createElement`. Ułatwia to tworzenie i wizualne przedstawienie struktury komponentów.",
-      "resources": [
-        "https://react.dev/learn/writing-markup-with-jsx"
-      ],
-      "level": 2,
-      "completed": true,
-      "editDate": "03.02.2025, 20:25"
-    },
-    {
       "id": "3",
       "category": "react",
       "question": "Jaka jest główna zasada działania Reacta?",
@@ -31,13 +18,13 @@
       "category": "react",
       "question": "Jak utworzyć komponent w React?",
       "answer": "Komponent można utworzyć jako funkcję lub klasę.",
-      "description": "Komponenty funkcyjne to funkcje, które przyjmują `props` i zwracają JSX. Komponenty klasowe to klasy dziedziczące po `React.Component`, posiadające metodę `render`.",
+      "description": "Komponenty funkcyjne to funkcje, które przyjmują `props` i zwracają JSX. Komponenty klasowe to klasy dziedziczące po `React.Component`, posiadające metodę \"render\".",
       "resources": [
         "https://react.dev/learn/your-first-component"
       ],
       "level": 1,
       "completed": false,
-      "editDate": "3/17/2026, 01:03 PM"
+      "editDate": "3/18/2026, 01:09 AM"
     },
     {
       "id": "5",
@@ -85,7 +72,8 @@
         "https://reactrouter.com/en/main"
       ],
       "level": 2,
-      "completed": false
+      "completed": false,
+      "editDate": "3/18/2026, 11:10 PM"
     },
     {
       "id": "10",

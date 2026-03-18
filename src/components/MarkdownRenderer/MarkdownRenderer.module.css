@@ -1,14 +1,15 @@
 .markdown {
+	font-size: 16px;
 	line-height: 1.6;
 }
 
 .markdown code {
 	background: #1e1e1e;
 	color: #ffcc66;
+	font-size: 0.95em;
 	padding: 2px 6px;
 	border-radius: 6px;
 	font-family: monospace;
-	font-size: 0.9em;
 }
 
 .markdown pre {
@@ -18,12 +19,13 @@
 	overflow-x: auto;
 }
 
-.markdown pre code {
-	background: none;
-	padding: 0;
-	color: #e6e6e6;
-}
 
 .markdown p {
 	margin: 8px 0;
+}
+
+.resultLabel {
+	font-size: 13px;
+	font-weight: 600;
+	color: #aaa;
 }
