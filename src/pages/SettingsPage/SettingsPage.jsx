@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../../context/ThemeContext';
 import Button from '../../components/Button';
 import Switch from 'react-switch';
 
@@ -9,33 +9,9 @@ import styles from './SettingsPage.module.css';
 const SettingsPage = () => {
 	const navigate = useNavigate();
 
-	const THEME_KEY = 'theme';
-	const getSystemTheme = () => (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+	const { theme, setTheme } = useTheme();
 
-	const [theme, setTheme] = useState(localStorage.getItem(THEME_KEY) || 'system');
-	const isDark = theme === 'dark' || (theme === 'system' && getSystemTheme() === 'dark');
-
-	useEffect(() => {
-		const resolved = theme === 'system' ? getSystemTheme() : theme;
-
-		document.documentElement.setAttribute('data-theme', resolved);
-
-		localStorage.setItem(THEME_KEY, theme);
-	}, [theme]);
-
-	useEffect(() => {
-		const media = window.matchMedia('(prefers-color-scheme: dark)');
-
-		const listener = () => {
-			if (theme === 'system') {
-				const resolved = getSystemTheme();
-				document.documentElement.setAttribute('data-theme', resolved);
-			}
-		};
-
-		media.addEventListener('change', listener);
-		return () => media.removeEventListener('change', listener);
-	}, [theme]);
+	const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
 	return (
 		<>
@@ -91,8 +67,8 @@ const SettingsPage = () => {
 						<p className={styles.infoTitle}>Hover / Click to reveal answer</p>
 
 						<Switch
-							checked={true}
-							onChange={() => {}}
+							checked={isDark}
+							onChange={(checked) => setTheme(checked ? 'dark' : 'light')}
 							offColor='#383b3f'
 							onColor='#219679'
 							uncheckedIcon={false}

@@ -86,10 +86,10 @@ const EditQuestion = ({ initialState = {} }) => {
 			<div className={styles.formContainer}>
 				<div className={styles.topContainer}>
 					<div className={styles.topContainerLeft}>
-						<Button onClick={() => navigate(-1)} >
-						{' '}
-						<ArrowLeft size={18} /> Go Back{' '}
-					</Button>
+						<Button onClick={() => navigate((-1))}>
+							{' '}
+							<ArrowLeft size={18} /> Go Back{' '}
+						</Button>
 						<h1 className={styles.formTitle}>Edit</h1>
 					</div>
 					<div className={styles.topContainerRight}>
