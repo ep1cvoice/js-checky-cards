@@ -8,7 +8,7 @@
 	box-shadow: var(--shadow);
 	display: flex;
 	flex-direction: column;
-	justify-content: start;
+	justify-content: space-between;
 	align-items: start;
 	gap: 15px;
 	transition: all 0.25s ease;
@@ -20,7 +20,7 @@
 
 .card:hover {
 	transform: translateY(-3px);
-	background-color: var(--card-hover-bg); 
+	background-color: var(--card-hover-bg);
 	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
@@ -48,18 +48,25 @@
 }
 
 .cardAnswers {
-	margin-top: auto;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
 }
 
 .cardParagraph {
 	font-size: 14px;
 	filter: blur(3px);
+	max-height: 80px;
+	overflow: hidden;
 	font-style: italic;
 	text-align: justify;
 	transition: filter 0.3s ease-in-out;
 }
 .show {
 	filter: blur(0);
+	max-height: 120px;
+	overflow-y: auto;
 }
 
 .clickable {
