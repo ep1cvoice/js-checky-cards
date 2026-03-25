@@ -14,6 +14,8 @@ import TSLogo from '../../assets/typescript_logo.png';
 import GitHubLogo from '../../assets/github_logo.png';
 import InternetLogo from '../../assets/internet_logo.png';
 import TagLogo from '../../assets/html-tag.svg?react';
+import NodeLogo from '../../assets/nodejs-icon.svg'
+import NextLogo from '../../assets/nextjs-icon.svg'
 
 import { Plus, LogIn, Settings } from 'lucide-react';
 import styles from './Header.module.css';
@@ -21,10 +23,28 @@ import styles from './Header.module.css';
 const Header = () => {
 	const navigate = useNavigate();
 	const { isAuth, setIsAuth } = useAuth();
+	const [menuType, setMenuType] = useState('mobile');
 	const [isOpen, setIsOpen] = useState(false);
 
-	const toggleMenu = () => {
-		setIsOpen((prev) => !prev);
+	const toggleMenu = (type = 'mobile') => {
+		if (isOpen && menuType === type) {
+			setIsOpen(false);
+			return;
+		}
+		setMenuType(type);
+		setIsOpen(true);
+	};
+
+	const TECHNOLOGIES = {
+		html: { icon: htmlLogo, label: 'HTML' },
+		css: { icon: cssLogo, label: 'CSS' },
+		javascript: { icon: JSLogo, label: 'JavaScript' },
+		react: { icon: ReactLogo, label: 'React' },
+		typescript: { icon: TSLogo, label: 'TypeScript' },
+		git: { icon: GitHubLogo, label: 'Git' },
+		web: { icon: InternetLogo, label: 'Web Basics' },
+		node: {icon: NodeLogo, label: 'Node.js'},
+		next: {icon: NextLogo, label: 'Next.js'}
 	};
 
 	const goToTechnology = (tech) => {
@@ -34,6 +54,7 @@ const Header = () => {
 
 	const [searchParams] = useSearchParams();
 	const activeTechnology = searchParams.get('technology');
+	const currentTech = TECHNOLOGIES[activeTechnology] || null;
 
 	const loginHandler = () => {
 		localStorage.setItem(AUTH_STORAGE, !isAuth);
@@ -43,54 +64,31 @@ const Header = () => {
 	return (
 		<>
 			<header className={styles.header}>
-				<div className={styles.burger} onClick={toggleMenu}>
+				<div className={`${styles.burger} ${styles.mobileBurger}`} onClick={() => toggleMenu('mobile')}>
 					<span></span>
 					<span></span>
 					<span></span>
 				</div>
 
-				<div className={styles.techIcons}>
-					<button
-						className={`${styles.headerButton} ${activeTechnology === 'html' ? styles.active : ''}`}
-						onClick={() => goToTechnology('html')}>
-						<img className={styles.headerIcon} src={htmlLogo} alt='html logo' />
-					</button>
-					<button
-						className={`${styles.headerButton} ${activeTechnology === 'css' ? styles.active : ''}`}
-						onClick={() => goToTechnology('css')}>
-						<img className={styles.headerIcon} src={cssLogo} alt='css logo' />
-					</button>
-					<button
-						className={`${styles.headerButton} ${activeTechnology === 'javascript' ? styles.active : ''}`}
-						onClick={() => goToTechnology('javascript')}>
-						<img className={styles.headerIcon} src={JSLogo} alt='JS logo' />
-					</button>
-					<button
-						className={`${styles.headerButton} ${activeTechnology === 'react' ? styles.active : ''}`}
-						onClick={() => goToTechnology('react')}>
-						<img className={styles.headerIcon} src={ReactLogo} alt='React logo' />
-					</button>
-					<button
-						className={`${styles.headerButton} ${activeTechnology === 'typescript' ? styles.active : ''}`}
-						onClick={() => goToTechnology('typescript')}>
-						<img className={styles.headerIcon} src={TSLogo} alt='TS logo' />
-					</button>
-					<button
-						className={`${styles.headerButton} ${activeTechnology === 'git' ? styles.active : ''}`}
-						onClick={() => goToTechnology('git')}>
-						<img className={styles.headerIcon} src={GitHubLogo} alt='GitHub logo' />
-					</button>
-					<button
-						className={`${styles.headerButton} ${activeTechnology === 'web' ? styles.active : ''}`}
-						onClick={() => goToTechnology('web')}>
-						<img className={styles.headerIcon} src={InternetLogo} alt='Internet logo' />
-					</button>
+				<div className={styles.headerDesktopLeft}>
+					<div className={`${styles.burger} ${styles.desktopBurger}`} onClick={() => toggleMenu('desktop')}>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+
+					{currentTech && (
+						<div className={`${styles.headerLabel} ${styles.active}`}>
+							<img className={styles.headerIcon} src={currentTech.icon} alt={currentTech.label} />
+							<span className={styles.labelText}>{currentTech.label}</span>
+						</div>
+					)}
 				</div>
 
 				<div className={styles.rightSide}>
 					<div className={styles.brand} onClick={() => navigate('/')}>
 						<TagLogo className={`${styles.headerIcon} ${styles.tagIcon}`} />
-						<span>WebDev Cards</span>
+						<span className={styles.brandText}>WebDev Cards</span>
 					</div>
 
 					<div className={styles.headerButtons}>
@@ -116,47 +114,51 @@ const Header = () => {
 				</div>
 			</header>
 
-			{isOpen && <div className={styles.overlay} onClick={toggleMenu}></div>}
+			{isOpen && <div className={styles.overlay} onClick={() => setIsOpen(false)}></div>}
 
 			<div className={`${styles.sideMenu} ${isOpen ? styles.open : ''}`}>
 				<h3>Technologies</h3>
 
-				<div className={styles.menuItem} onClick={() => goToTechnology('html')}>
+				<div
+					className={`${styles.menuItem} ${activeTechnology === 'html' ? styles.activeMenuItem : ''}`}
+					onClick={() => goToTechnology('html')}>
 					<img src={htmlLogo} alt='html' />
 					<span>HTML</span>
 				</div>
 
-				<div className={styles.menuItem} onClick={() => goToTechnology('css')}>
+				<div
+					className={`${styles.menuItem} ${activeTechnology === 'css' ? styles.activeMenuItem : ''}`}
+					onClick={() => goToTechnology('css')}>
 					<img src={cssLogo} alt='css' />
 					<span>CSS</span>
 				</div>
 
-				<div className={styles.menuItem} onClick={() => goToTechnology('javascript')}>
+				<div className={`${styles.menuItem} ${activeTechnology === 'javascript' ? styles.activeMenuItem : ''}` } onClick={() => goToTechnology('javascript')}>
 					<img src={JSLogo} alt='JS' />
 					<span>JavaScript</span>
 				</div>
 
-				<div className={styles.menuItem} onClick={() => goToTechnology('react')}>
+				<div className={`${styles.menuItem} ${activeTechnology === 'react' ? styles.activeMenuItem : ''}`} onClick={() => goToTechnology('react')}>
 					<img src={ReactLogo} alt='React' />
 					<span>React</span>
 				</div>
 
-				<div className={styles.menuItem} onClick={() => goToTechnology('typescript')}>
+				<div className={`${styles.menuItem} ${activeTechnology === 'typescript' ? styles.activeMenuItem : ''}`} onClick={() => goToTechnology('typescript')}>
 					<img src={TSLogo} alt='Typescript' />
 					<span>TypeScript</span>
 				</div>
 
-				<div className={styles.menuItem} onClick={() => goToTechnology('git')}>
-					<img src={GitHubLogo} alt='GitHub' />
-					<span>GitHub</span>
+				<div className={`${styles.menuItem} ${activeTechnology === 'git' ? styles.activeMenuItem : ''}`} onClick={() => goToTechnology('git')}>
+					<img src={GitHubLogo} alt='Gi' />
+					<span>Git</span>
 				</div>
 
-				<div className={styles.menuItem} onClick={() => goToTechnology('web')}>
+				<div className={`${styles.menuItem} ${activeTechnology === 'web' ? styles.activeMenuItem : ''}`} onClick={() => goToTechnology('web')}>
 					<img src={InternetLogo} alt='Web Fundamentals' />
 					<span>Web Basics</span>
 				</div>
 
-				{isAuth ? (
+				{isAuth && menuType === 'mobile' ? (
 					<>
 						<Button
 							onClick={() => {
@@ -178,15 +180,19 @@ const Header = () => {
 				) : (
 					''
 				)}
-				<Button
-					onClick={() => {
-						setIsOpen(false);
-						loginHandler();
-					}}
-					isActive={!isAuth}>
-					<LogIn size={16} />
-					{isAuth ? 'Log Out' : 'Log In'}
-				</Button>
+				{isAuth && menuType == 'mobile' ? (
+					<Button
+						onClick={() => {
+							setIsOpen(false);
+							loginHandler();
+						}}
+						isActive={!isAuth}>
+						<LogIn size={16} />
+						{isAuth ? 'Log Out' : 'Log In'}
+					</Button>
+				) : (
+					''
+				)}
 			</div>
 		</>
 	);
