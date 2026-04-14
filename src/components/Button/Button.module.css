@@ -41,3 +41,11 @@
 .neutral:hover {
 	background-color: #155e4b;
 }
+
+.logged {
+	background-color: rgb(255, 102, 102);
+	color: var(--btn-text-color);
+}
+.logged:hover {
+	background-color: rgb(255, 78, 78);
+}

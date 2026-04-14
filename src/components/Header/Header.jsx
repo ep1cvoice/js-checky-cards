@@ -46,7 +46,7 @@ const Header = () => {
 		web: { icon: InternetLogo, label: 'Web Basics' },
 		node: { icon: NodeLogo, label: 'Node.js' },
 		next: { icon: NextLogo, label: 'Next.js' },
-		other: {icon: OtherLogo, label : 'Other'}
+		other: { icon: OtherLogo, label: 'Other' },
 	};
 
 	const goToTechnology = (tech) => {
@@ -66,9 +66,11 @@ const Header = () => {
 	return (
 		<>
 			<header className={styles.header}>
-				<div className={`${styles.burger} ${styles.mobileBurger}`} onClick={() => toggleMenu('mobile')}>
-					{isOpen && menuType === 'mobile' ? <X size={28} /> : <Menu size={28} />}
-				</div>
+				{!(isOpen && menuType === 'mobile') && (
+					<div className={`${styles.burger} ${styles.mobileBurger}`} onClick={() => toggleMenu('mobile')}>
+						<Menu size={28} />
+					</div>
+				)}
 
 				<div className={styles.headerDesktopLeft}>
 					<div className={`${styles.burger} ${styles.desktopBurger}`} onClick={() => toggleMenu('desktop')}>
@@ -104,7 +106,7 @@ const Header = () => {
 						) : (
 							''
 						)}
-						<Button onClick={loginHandler} isActive={!isAuth}>
+						<Button onClick={loginHandler} isLogged={isAuth} isNeutral={!isAuth}>
 							<LogIn size={18} i />
 							{isAuth ? 'Log Out' : 'Log In'}
 						</Button>
@@ -115,6 +117,48 @@ const Header = () => {
 			{isOpen && <div className={styles.overlay} onClick={() => setIsOpen(false)}></div>}
 
 			<div className={`${styles.sideMenu} ${isOpen ? styles.open : ''}`}>
+				{menuType === 'mobile' && (
+					<div className={styles.sideMenuClose} onClick={() => setIsOpen(false)}>
+						<X size={28} />
+					</div>
+				)}
+
+				{isAuth && menuType === 'mobile' ? (
+					<>
+						<Button
+							onClick={() => {
+								setIsOpen(false);
+								navigate('/addquestion');
+							}}
+							isNeutral={true}
+							isDisabled={false}>
+							<Plus size={16} /> Add New Card{' '}
+						</Button>
+						<Button
+							onClick={() => {
+								setIsOpen(false);
+								navigate('/settings');
+							}}>
+							<Settings size={16} /> Settings{' '}
+						</Button>
+					</>
+				) : (
+					''
+				)}
+				{menuType == 'mobile' ? (
+					<Button
+						onClick={() => {
+							setIsOpen(false);
+							loginHandler();
+						}}
+						isLogged={isAuth} isNeutral={!isAuth}>
+						<LogIn size={16} />
+						{isAuth ? 'Log Out' : 'Log In'}
+					</Button>
+				) : (
+					''
+				)}
+
 				<h3>Technologies</h3>
 
 				<div
@@ -184,42 +228,6 @@ const Header = () => {
 					<img src={OtherLogo} alt='Other topics' />
 					<span>Other</span>
 				</div>
-
-				{isAuth && menuType === 'mobile' ? (
-					<>
-						<Button
-							onClick={() => {
-								setIsOpen(false);
-								navigate('/addquestion');
-							}}
-							isNeutral={true}
-							isDisabled={false}>
-							<Plus size={16} /> Add New Card{' '}
-						</Button>
-						<Button
-							onClick={() => {
-								setIsOpen(false);
-								navigate('/settings');
-							}}>
-							<Settings size={16} /> Settings{' '}
-						</Button>
-					</>
-				) : (
-					''
-				)}
-				{isAuth && menuType == 'mobile' ? (
-					<Button
-						onClick={() => {
-							setIsOpen(false);
-							loginHandler();
-						}}
-						isActive={!isAuth}>
-						<LogIn size={16} />
-						{isAuth ? 'Log Out' : 'Log In'}
-					</Button>
-				) : (
-					''
-				)}
 			</div>
 		</>
 	);
