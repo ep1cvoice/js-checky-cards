@@ -111,8 +111,16 @@ const Header = () => {
 
 				<div className={styles.rightSide}>
 					<div className={styles.brand} onClick={() => navigate('/')}>
-						<TagLogo className={`${styles.headerIcon} ${styles.tagIcon}`} />
-						<span className={styles.brandText}>WebDev Cards</span>
+						<span className={`${styles.brandContent} ${currentTech ? styles.brandHiddenMobile : ''}`}>
+							<TagLogo className={`${styles.headerIcon} ${styles.tagIcon}`} />
+							<span className={styles.brandText}>WebDev Cards</span>
+						</span>
+						{currentTech && (
+							<span className={styles.mobileCategoryLabel}>
+								<img className={styles.headerIcon} src={currentTech.icon} alt={currentTech.label} />
+								<span className={styles.labelText}>{currentTech.label}</span>
+							</span>
+						)}
 					</div>
 
 					<div className={styles.headerButtons}>

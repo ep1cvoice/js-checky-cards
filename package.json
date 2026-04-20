@@ -7,13 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "server": "json-server --watch dbpl.json -p 8800",
-    "server-help": "json-server --help"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.103.0",
-    "json-server": "^0.17.3",
     "lucide-react": "^0.575.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

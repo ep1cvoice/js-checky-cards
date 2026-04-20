@@ -122,6 +122,8 @@
 }
 
 .pageButton {
+	width: 43px;
+	height: 40px;
 	padding: 8px 14px;
 	border: none;
 	color: var(--text-color);
@@ -133,6 +135,12 @@
 
 .pageButton:hover {
 	background: var(--btn-hover-bg);
+}
+
+.ellipsis {
+	padding: 8px 6px;
+	color: var(--text-color);
+	user-select: none;
 }
 
 .active {

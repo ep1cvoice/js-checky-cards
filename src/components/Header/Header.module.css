@@ -42,6 +42,18 @@
 	cursor: pointer;
 }
 
+.brandContent {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.mobileCategoryLabel {
+	display: none;
+	align-items: center;
+	gap: 10px;
+}
+
 .brandText {
 	font-size: 20px;
 	font-weight: bold;
@@ -206,6 +218,12 @@
 		position: absolute;
 		top: 20px;
 		left: 20px;
+	}
+	.brandHiddenMobile {
+		display: none;
+	}
+	.mobileCategoryLabel {
+		display: flex;
 	}
 	.sideMenu {
 		left: auto;

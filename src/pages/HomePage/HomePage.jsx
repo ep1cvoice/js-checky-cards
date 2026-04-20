@@ -127,6 +127,31 @@ const HomePage = () => {
 		});
 	};
 
+	const getPageNumbers = (current, total) => {
+		if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+
+		const pages = [];
+		const addPage = (n) => pages.push(n);
+		const addEllipsis = () => pages.push('...');
+
+		addPage(1);
+
+		if (current <= 4) {
+			for (let i = 2; i <= Math.min(5, total - 1); i++) addPage(i);
+			addEllipsis();
+		} else if (current >= total - 3) {
+			addEllipsis();
+			for (let i = Math.max(total - 4, 2); i <= total - 1; i++) addPage(i);
+		} else {
+			addEllipsis();
+			for (let i = current - 1; i <= current + 1; i++) addPage(i);
+			addEllipsis();
+		}
+
+		addPage(total);
+		return pages;
+	};
+
 	const handlePageChange = (newPage) => {
 		setSearchParams((prev) => {
 			const params = new URLSearchParams(prev);
@@ -224,14 +249,18 @@ const HomePage = () => {
 			<QuestionCardList cards={questions} />
 
 			<div className={styles.pagination}>
-				{Array.from({ length: totalPages }, (_, i) => (
-					<button
-						key={i}
-						onClick={() => handlePageChange(i + 1)}
-						className={`${styles.pageButton} ${page === i + 1 ? styles.active : ''}`}>
-						{i + 1}
-					</button>
-				))}
+				{getPageNumbers(page, totalPages).map((p, i) =>
+					p === '...' ? (
+						<span key={`ellipsis-${i}`} className={styles.ellipsis}>…</span>
+					) : (
+						<button
+							key={p}
+							onClick={() => handlePageChange(p)}
+							className={`${styles.pageButton} ${page === p ? styles.active : ''}`}>
+							{p}
+						</button>
+					)
+				)}
 			</div>
 		</>
 	);
