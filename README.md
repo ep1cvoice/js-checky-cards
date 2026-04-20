@@ -11,8 +11,6 @@ A personal learning tool and flashcard app for web development — browse, filte
 **Live at:** [webgdev-checky-cards.vercel.app](https://webgdev-checky-cards.vercel.app)
 ## ![App Preview Desktop](./src/assets/preview/desktop-preview.jpg)
 
-> New cards are added on a regular basis as topics are studied and explored.
-
 ---
 
 ## Project Purpose
