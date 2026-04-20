@@ -1,4 +1,4 @@
-# WebGDev Checky Cards
+# WebDev Checky Cards
 
 A personal learning tool and flashcard app for web development — browse, filter, and track progress through knowledge cards covering React, JavaScript, TypeScript, HTML, CSS, Git, Node.js, Next.js, and Web fundamentals.
 
