@@ -16,6 +16,9 @@ import ReactLogo from '../../assets/react.svg';
 import TSLogo from '../../assets/typescript_logo.png';
 import GitHubLogo from '../../assets/github_logo.png';
 import InternetLogo from '../../assets/internet_logo.png';
+import NodeLogo from '../../assets/nodejs-icon.svg';
+import DevOpsLogo from '../../assets/Devops_logo.jpg';
+import ExpressLogo from '../../assets/Express_logo.png';
 
 import { Pencil, ArrowLeft } from 'lucide-react';
 import styles from './QuestionPage.module.css';
@@ -82,6 +85,8 @@ const QuestionPage = () => {
 		typescript: TSLogo,
 		git: GitHubLogo,
 		web: InternetLogo,
+		devops: DevOpsLogo,
+		backend: ExpressLogo,
 	};
 
 	const levelMap = {

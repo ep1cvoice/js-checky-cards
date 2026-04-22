@@ -16,6 +16,8 @@ import TagLogo from '../../assets/html-tag.svg?react';
 import NodeLogo from '../../assets/nodejs-icon.svg';
 import NextLogo from '../../assets/nextjs-icon.svg';
 import OtherLogo from '../../assets/menu.png';
+import DevOpsLogo from '../../assets/Devops_logo.jpg';
+import ExpressLogo from '../../assets/Express_logo.png';
 
 import { Plus, LogIn, Settings, Menu, X } from 'lucide-react';
 import styles from './Header.module.css';
@@ -46,6 +48,8 @@ const Header = () => {
 		web: { icon: InternetLogo, label: 'Web Basics' },
 		node: { icon: NodeLogo, label: 'Node.js' },
 		next: { icon: NextLogo, label: 'Next.js' },
+		devops: { icon: DevOpsLogo, label: 'DevOps' },
+		backend: { icon: ExpressLogo, label: 'Backend' },
 		other: { icon: OtherLogo, label: 'Other' },
 	};
 
@@ -253,6 +257,20 @@ const Header = () => {
 					onClick={() => goToTechnology('git')}>
 					<img src={GitHubLogo} alt='Gi' />
 					<span>Git</span>
+				</div>
+
+				<div
+					className={`${styles.menuItem} ${activeTechnology === 'devops' ? styles.activeMenuItem : ''}`}
+					onClick={() => goToTechnology('devops')}>
+					<img src={DevOpsLogo} alt='DevOps' />
+					<span>DevOps</span>
+				</div>
+
+				<div
+					className={`${styles.menuItem} ${activeTechnology === 'backend' ? styles.activeMenuItem : ''}`}
+					onClick={() => goToTechnology('backend')}>
+					<img src={ExpressLogo} alt='Backend' />
+					<span>Backend</span>
 				</div>
 
 				<div

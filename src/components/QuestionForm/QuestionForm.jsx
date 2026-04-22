@@ -32,6 +32,8 @@ const QuestionForm = ({ formAction, formState, submitBtnText, isLoading }) => {
 					<option value='typescript'>TypeScript</option>
 					<option value='git'>Git</option>
 					<option value='web'>Web Basics</option>
+					<option value='devops'>DevOps</option>
+					<option value='backend'>Backend</option>
 				</select>
 			</div>
 

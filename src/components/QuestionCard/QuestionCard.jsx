@@ -14,6 +14,8 @@ import InternetLogo from '../../assets/internet_logo.png';
 import NextLogo from '../../assets/nextjs-icon.svg';
 import NodeLogo from '../../assets/nodejs-icon.svg';
 import OtherLogo from '../../assets/menu.png';
+import DevOpsLogo from '../../assets/Devops_logo.jpg';
+import ExpressLogo from '../../assets/Express_logo.png';
 
 import { Star, Expand, Check } from 'lucide-react';
 import styles from './QuestionCard.module.css';
@@ -32,6 +34,8 @@ const QuestionCard = ({ card }) => {
 		web: InternetLogo,
 		node: NodeLogo,
 		next: NextLogo,
+		devops: DevOpsLogo,
+		backend: ExpressLogo,
 		other: OtherLogo,
 	};
 

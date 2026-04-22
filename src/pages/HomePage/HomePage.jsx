@@ -241,6 +241,8 @@ const HomePage = () => {
 						<option value='next'>Next.js</option>
 						<option value='web'>Web Basics</option>
 						<option value='git'>Git</option>
+						<option value='devops'>DevOps</option>
+						<option value='backend'>Backend</option>
 						<option value='other'>Other</option>
 					</select>
 					<select value={sortSelectValue} onChange={onSortSelectChangeHandler} className={styles.select}>
