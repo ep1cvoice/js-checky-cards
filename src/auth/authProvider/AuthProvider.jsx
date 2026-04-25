@@ -22,14 +22,21 @@ export const AuthProvider = ({ children }) => {
 
 	useEffect(() => {
 		const init = async () => {
+			console.log('[auth] init started');
 			try {
 				const { data: { session } } = await supabase.auth.getSession();
+				console.log('[auth] getSession done, session:', !!session);
 				setIsAuth(!!session);
 				setUser(session?.user ?? null);
 				if (session?.user) {
-					setHasUserCards(await checkHasUserCards());
+					const has = await checkHasUserCards();
+					console.log('[auth] checkHasUserCards done:', has);
+					setHasUserCards(has);
 				}
+			} catch (err) {
+				console.error('[auth] init error:', err);
 			} finally {
+				console.log('[auth] setLoading(false)');
 				setLoading(false);
 			}
 		};
@@ -37,6 +44,7 @@ export const AuthProvider = ({ children }) => {
 		init();
 
 		const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+			console.log('[auth] onAuthStateChange event:', _event, 'session:', !!session);
 			setIsAuth(!!session);
 			setUser(session?.user ?? null);
 			if (session?.user) {
