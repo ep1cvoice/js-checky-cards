@@ -21,30 +21,7 @@ export const AuthProvider = ({ children }) => {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		const init = async () => {
-			console.log('[auth] init started');
-			try {
-				const { data: { session } } = await supabase.auth.getSession();
-				console.log('[auth] getSession done, session:', !!session);
-				setIsAuth(!!session);
-				setUser(session?.user ?? null);
-				if (session?.user) {
-					const has = await checkHasUserCards();
-					console.log('[auth] checkHasUserCards done:', has);
-					setHasUserCards(has);
-				}
-			} catch (err) {
-				console.error('[auth] init error:', err);
-			} finally {
-				console.log('[auth] setLoading(false)');
-				setLoading(false);
-			}
-		};
-
-		init();
-
 		const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
-			console.log('[auth] onAuthStateChange event:', _event, 'session:', !!session);
 			setIsAuth(!!session);
 			setUser(session?.user ?? null);
 			if (session?.user) {
@@ -52,6 +29,7 @@ export const AuthProvider = ({ children }) => {
 			} else {
 				setHasUserCards(false);
 			}
+			setLoading(false);
 		});
 
 		return () => subscription.unsubscribe();
