@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
 import { AuthContext } from './AuthContext';
+import SplashScreen from '../../components/SplashScreen/SplashScreen';
 
 const checkHasUserCards = async () => {
 	try {
@@ -73,7 +74,7 @@ export const AuthProvider = ({ children }) => {
 		await supabase.auth.signOut();
 	};
 
-	if (loading) return null;
+	if (loading) return <SplashScreen />;
 
 	return (
 		<AuthContext.Provider value={{ isAuth, user, hasUserCards, signIn, signUp, signOut, copyCards, deleteAllCards, deleteAccount }}>
