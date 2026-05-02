@@ -110,6 +110,7 @@ const HomePage = () => {
 			currentLimit: limit,
 			activeTable: table,
 		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [searchValue, technology, sortSelectValue, page, limit, table]);
 
 	const handleCopyCards = async (): Promise<void> => {

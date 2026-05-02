@@ -25,6 +25,7 @@ export const RevealAnswerProvider = ({ children }: { children: React.ReactNode }
 	);
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useRevealAnswer = (): RevealAnswerContextType => {
 	const context = useContext(RevealAnswerContext);
 	if (!context) throw new Error('useRevealAnswer must be used within RevealAnswerProvider');

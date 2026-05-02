@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useFetch = <TFn extends (...args: any[]) => Promise<any>>(
 	callback: TFn,
 ): [(...args: Parameters<TFn>) => Promise<Awaited<ReturnType<TFn>> | undefined>, boolean, string] => {
